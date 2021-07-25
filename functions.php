@@ -32,6 +32,20 @@ if ( ! function_exists( 'theme_setup' ) ) :
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
+		function _action_theme_wp_print_styles() {
+			if (!defined('FW')) return; // prevent fatal error when the framework is not active
+		
+			$option_value = fw_get_db_customizer_option('body-color');
+		
+			echo '<style type="text/css">'
+				 . 'body { '
+				 . 'background: '. esc_html($option_value) .'!important; '
+				 . '}'
+				 . '</style>';
+		}
+		add_action('wp_print_styles', '_action_theme_wp_print_styles');
+	
+
 		/*
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
@@ -181,4 +195,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Load TGM.
  */
 	require get_template_directory() . '/tgm/theme-test.php';
+
+	
 
