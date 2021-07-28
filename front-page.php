@@ -18,7 +18,7 @@ get_header();
   <div id="primery" class="content-area">
 	<main id="main" class="site-main">
 
-	<h1>Название компании: <?php $option_value = fw_get_db_customizer_option('about-text');
+	<h1>Телефон компании: <?php $option_value = fw_get_db_settings_option('phone-number');
 	   echo esc_html($option_value); ?>
 	</h1>
 

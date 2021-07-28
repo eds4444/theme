@@ -35,7 +35,7 @@ if ( ! function_exists( 'theme_setup' ) ) :
 		function _action_theme_wp_print_styles() {
 			if (!defined('FW')) return; // prevent fatal error when the framework is not active
 		
-			$option_value = fw_get_db_customizer_option('body-color');
+			$option_value = fw_get_db_settings_option('body-color');
 		
 			echo '<style type="text/css">'
 				 . 'body { '
